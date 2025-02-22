@@ -2,7 +2,7 @@ import { firestore } from "../../config/firebase";
 import { addDoc, collection } from "@firebase/firestore";
 import { useRef } from "react";
 
-export default function home() {
+export default function Db_form() {
 
     const messageRef = useRef(null);
     const ref = collection(firestore, "messages");
@@ -10,14 +10,14 @@ export default function home() {
 
     const handleSave = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        
+
         let data = {
-            
+
             message: "hello"
         }
         try {
             addDoc(ref, data);
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
     }
@@ -26,7 +26,7 @@ export default function home() {
         <div>
             <form onSubmit={handleSave}>
                 <label> Enter Message: </label>
-                <input type="text" ref={messageRef}/>
+                <input type="text" ref={messageRef} />
                 <button type="submit">Save</button>
             </form>
         </div>

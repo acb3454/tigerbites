@@ -1,6 +1,6 @@
 import './App.css'
 import NavBar from './components/ui/navbar'
-import Home from './components/ui/home'
+import Db_form from './components/ui/db_form'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
       <div className='base'>
         <div className='handle'></div>
         <NavBar></NavBar>
-        <Home></Home>
+        <Db_form></Db_form>
       </div>
     </>
   )
