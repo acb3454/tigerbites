@@ -1,16 +1,17 @@
 import './App.css'
-import NavBar from './components/ui/navbar'
-import Db_form from './components/ui/db_form'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
 function App() {
 
   return (
     <>
-      <div className='base'>
-        <div className='handle'></div>
-        <NavBar></NavBar>
-        <Db_form></Db_form>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/inside" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
