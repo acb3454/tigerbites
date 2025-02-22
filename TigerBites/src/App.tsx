@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <div className='base'>
+        <div className='handle'></div>
         <NavBar></NavBar>
       </div>
     </>
