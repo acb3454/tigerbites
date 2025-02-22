@@ -5,8 +5,8 @@ export interface Food {
     contact: DocumentReference;
     name: string;
     description: string;
-    startPickup: Timestamp;
-    endPickup: Timestamp;
+    startPickup: Timestamp | Date;
+    endPickup: Timestamp | Date;
     mealsAvailable: number;
 }
 

@@ -18,7 +18,6 @@
 .meal {
     aspect-ratio: 1 / 1;
     width: calc(100% - 10px);
-    border: 1px solid #333;
 }
 
 @media (max-width: 768px) {
