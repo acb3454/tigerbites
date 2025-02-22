@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
 
 .navbar {
-    padding: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
     position: relative;
 }
 
@@ -14,7 +17,7 @@
 .navbar-logo {
     color: #333;
     font-size: 2.5rem;
-    padding-right: 2em;
+    padding-right: 1em;
     font-family: 'Sigmar', sans-serif;
 }
 
