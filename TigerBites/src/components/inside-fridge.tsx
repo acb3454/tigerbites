@@ -1,17 +1,9 @@
 import './inside-fridge.css';
 
-export default function MealContainer() {
+export default function InsideFridge() {
     return (
-        <div className="meal-container">
-            <div className="meal">
-
-            </div>
-            <div className="meal ">
-
-            </div>
-            <div className="meal ">
-
-            </div>
+        <div className="inside-base">
+            
         </div>
     );
 }
