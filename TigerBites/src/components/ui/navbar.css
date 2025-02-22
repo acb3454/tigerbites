@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
+
 .navbar {
-    padding: 1rem;
+    padding: 1.5rem;
     position: relative;
 }
 
@@ -11,8 +13,9 @@
 
 .navbar-logo {
     color: #333;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding-right: 2em;
+    font-family: 'Sigmar', sans-serif;
 }
 
 .navbar-menu {
@@ -40,19 +43,21 @@
 
 
 .navbar-menu {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    font-size: large;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: fit-content;
+    text-align: right;
 }
 
-    .navbar-menu.open {
-        display: flex;
-    }
+.navbar-menu.open {
+    display: flex;
+}
 
-    .navbar-hamburger {
-        display: flex;
-    }
+.navbar-hamburger {
+    display: flex;
+}
