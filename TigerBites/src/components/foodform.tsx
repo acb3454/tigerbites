@@ -57,7 +57,11 @@ const FoodForm = () => {
         }),
         startPickup: z.string(),
         endPickup: z.string(),
-        mealsAvailable: z.preprocess((val) => Number(val), z.number()),
+        mealsAvailable: z.preprocess((val) => Number(val), z.number().min(1, {
+            message: "Meals available must be at least 1.",
+        }).max(100, {
+            message: "Meals available must be at most 100.",
+        })),
         image: z.any()
     });
 
