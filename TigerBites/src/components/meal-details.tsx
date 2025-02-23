@@ -3,17 +3,26 @@ import { useState, useEffect } from 'react';
 import { getMealById } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 import InsideFridge from '@/components/inside-fridge';
+import { useParams, useNavigate } from 'react-router-dom';
 
-interface MealDetailProps {
-    mealId: string;
-    onBack: () => void;
-}
+// Convert timestamps
+const formatTimestamp = (timestamp: any) => {
+    if (!timestamp) return "N/A";
+    return timestamp.toDate ? timestamp.toDate().toLocaleString() : new Date(timestamp).toLocaleString();
+};
 
-export default function MealDetails({ mealId, onBack }: MealDetailProps) {
+export default function MealDetails() {
     const [meal, setMeal] = useState<Food | null>(null);
     const [loading, setLoading] = useState(true);
+    const { mealId } = useParams(); // Get mealId from URL
+    const navigate = useNavigate();
 
     useEffect(() => {
+        if (!mealId) {
+            setLoading(false);
+            return;
+        }
+
         const fetchMeal = async () => {
             try {
                 const data = await getMealById(mealId);
@@ -32,27 +41,17 @@ export default function MealDetails({ mealId, onBack }: MealDetailProps) {
     if (!meal) return <p>Meal not found.</p>;
 
     return (
-        <>
-            <InsideFridge>
-                {/* <NavBar></NavBar> */}
-                <div>
-                    <button onClick={onBack}>Back</button>
-                    <h2>{meal.name}</h2>
-                    <p>{meal.description}</p>
-                    <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
-                    <p className="meal-timing">
-                        Pickup:{" "}
-                        {meal.startPickup
-                            ? meal.startPickup.toLocaleString()
-                            : "N/A"}{" "}
-                        -{" "}
-                        {meal.endPickup
-                            ? meal.endPickup.toLocaleString()
-                            : "N/A"}
-                    </p>
-                    {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
-                </div>
-            </InsideFridge>
-        </>
+        <InsideFridge>
+            <div>
+                <button onClick={() => navigate(-1)}>Back</button>
+                <h2>{meal.name}</h2>
+                <p>{meal.description}</p>
+                <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
+                <p className="meal-timing">
+                    Pickup: {formatTimestamp(meal.startPickup)} - {formatTimestamp(meal.endPickup)}
+                </p>
+                {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
+            </div>
+        </InsideFridge>
     );
 }
