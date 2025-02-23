@@ -56,8 +56,8 @@ export default function MealContainer({}: MealContainerProps) {
         <div className="meal-container">
             {foodItems.map((food) => (
                 <div key={food.id} className="polaroid" onClick={() => navigate(`/meal/${food.id}`)}>
-                    <div className='image-container'>
-                <img src={getRandomMagnet()} alt="Magnet" className="magnet-image" />
+                    <img src={getRandomMagnet()} alt="Magnet" className="magnet-image" />
+                <div className='image-container'>
                 <img src={food.imageUrl || "default-image-url.jpg"} className='food-image' />
                 </div>
                 <p className="caption">   </p>
