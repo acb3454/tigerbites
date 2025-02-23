@@ -35,7 +35,7 @@ export default function MealDetails({ mealId, onBack }: MealDetailProps) {
         <>
             <InsideFridge>
                 {/* <NavBar></NavBar> */}
-                <div className="inside-base">
+                <div>
                     <button onClick={onBack}>Back</button>
                     <h2>{meal.name}</h2>
                     <p>{meal.description}</p>
