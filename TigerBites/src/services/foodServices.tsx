@@ -41,6 +41,7 @@ export async function getMealById(mealId: string): Promise<Food | null> {
             startPickup: data.startPickup?.toDate() || null,
             endPickup: data.endPickup?.toDate() || null,
             imageUrl: data.imageUrl || "",
+            location: data.location,
         } as Food;
     }
 

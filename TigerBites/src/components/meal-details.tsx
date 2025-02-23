@@ -104,6 +104,7 @@ export default function MealDetails() {
                 <p className="meal-timing">
                     Pickup: {formatTimestamp(meal.startPickup)} - {formatTimestamp(meal.endPickup)}
                 </p>
+                    <p>Location: {meal.location}</p>
                 {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
                 <Button className='button2' onClick={takeMeal}>Take Meal</Button>
             </div>
