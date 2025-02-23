@@ -4,8 +4,11 @@ import { getFoodItems } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 import { useNavigate } from 'react-router-dom';
 
+interface MealContainerProps {
+    onMealClick: (id: string) => void;
+}
 
-export default function MealContainer() {
+export default function MealContainer({}: MealContainerProps) {
     const [foodItems, setFoodItems] = useState<Food[]>([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
