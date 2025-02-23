@@ -10,8 +10,8 @@ import Goal11 from '../assets/Goal11.png'
 function About() {
   return (
     <>
+      <NavBar></NavBar>
       <InsideFridge>
-        <NavBar></NavBar>
         <div className= "mx-20">
             <div>
               <h1>About TigerBytes</h1>

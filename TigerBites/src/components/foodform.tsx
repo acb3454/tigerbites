@@ -26,6 +26,7 @@ export interface Food {
     contact: DocumentReference;
     name: string;
     description: string;
+    location: string;
     startPickup: Timestamp;
     endPickup: Timestamp;
     mealsAvailable: number;
@@ -51,6 +52,9 @@ const FoodForm = () => {
         description: z.string().min(10, {
             message: "Description must be at least 10 characters long.",
         }),
+        location: z.string().min(3, {
+            message: "Description must be at least 3 characters long.",
+        }),
         startPickup: z.string(),
         endPickup: z.string(),
         mealsAvailable: z.preprocess((val) => Number(val), z.number()),
@@ -64,6 +68,7 @@ const FoodForm = () => {
         defaultValues: {
             name: '',
             description: '',
+            location: '',
             startPickup: new Date(Date.now()).toISOString(),
             endPickup: new Date(Date.now()).toISOString(),
             mealsAvailable: 0,
@@ -89,6 +94,7 @@ const FoodForm = () => {
         const food: Food = {
             name: data.name,
             description: data.description,
+            location: data.location,
             contact: userRef as DocumentReference,
             startPickup: Timestamp.fromDate(new Date(data.startPickup)),
             endPickup: Timestamp.fromDate(new Date(data.endPickup)),
@@ -140,7 +146,21 @@ const FoodForm = () => {
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Textarea {...field} />
+                                    <Textarea {...field} placeholder="Please enter any details about the food. Include allergens, pickup info, or anything else someone would need to know."/>
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="location"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Location</FormLabel>
+                                <FormControl>
+                                    <Textarea {...field}   placeholder="Please specify a pickup location for this meal. Examples: GV 405 Lobby, RIT Foodshare, etc"/>
                                 </FormControl>
                                 <FormDescription />
                                 <FormMessage />

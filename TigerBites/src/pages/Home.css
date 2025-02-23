@@ -15,10 +15,9 @@
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
-    top: 50%;
+    top: 110px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 10%;
+    transform: translateX(-50%);
 }
 
 
@@ -43,7 +42,7 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
-    width: auto; 
+    width: auto;
     padding: 0.8rem 1.5rem;
     background-color: #102693;
     border: none;
@@ -64,21 +63,30 @@
     #root {
         padding: 0;
         margin: 0;
-        min-width: 100%;
+        min-width: 100vw;
         height: 100vh;
     }
 
     .base {
-        margin-top: 100px;
-        padding-top: 20px;
-        min-width: 100%;
+        width: 100%;
         height: calc(100vh - 100px);
-        border-radius: 0px;
+        top: 100px;
+        left: 0;
+        transform: none;
+        border-radius: 0;
+    }
+
+    .handle {
+        width: 1.5vh;
+        height: 200px;
+        top: 50%;
+        right: 4vw;
+        transform: translateY(-50%);
     }
 
     .linktext {
         font-size: 0.8em;
-        margin-left: 10px
+        margin-left: 10px;
     }
 
     .formlink {
@@ -88,4 +96,10 @@
         right: 0;
     }
 
+}
+
+@media (max-width: 320px) {
+    #root {
+        min-width: 320px;
+    }
 }
