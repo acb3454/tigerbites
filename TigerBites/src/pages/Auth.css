@@ -1,0 +1,11 @@
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    display: block;
+}
+
+
+.auth {
+    padding-top: 3rem;
+}
