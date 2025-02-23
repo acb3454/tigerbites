@@ -1,8 +1,12 @@
 import './Home.css'
+import { useState } from 'react';
 import NavBar from '../components/navbar'
 import MealContainer from '@/components/meal-containter'
+import MealDetails from '@/components/meal-details.tsx'
 
 function Home() {
+  const [selectedMealId, setSelectedMealId] = useState<string | null>(null);
+
   return (
     <>
       <div className='base'>
@@ -13,7 +17,11 @@ function Home() {
             Click here if you have meals avaliable!
           </div>
         </div>
-        <MealContainer></MealContainer>
+        {!selectedMealId ? (
+          <MealContainer onMealClick={(id: string) => setSelectedMealId(id)} />
+        ) : (
+          <MealDetails mealId={selectedMealId} onBack={() => setSelectedMealId(null)} />
+        )}
       </div>
     </>
   )

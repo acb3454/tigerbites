@@ -1,5 +1,5 @@
 import { firestore } from "../config/firebase.ts";
-import { collection, getDocs, DocumentData, Timestamp } from "firebase/firestore";
+import { doc, collection, getDoc, getDocs, DocumentData, Timestamp } from "firebase/firestore";
 import { Food } from "../types/firebaseTypes.tsx";
 
 export async function getFoodItems(): Promise<Food[]> {
@@ -24,5 +24,26 @@ export async function getFoodItems(): Promise<Food[]> {
             imageUrl: data.imageUrl,
         } as Food;
     });
+}
+
+export async function getMealById(mealId: string): Promise<Food | null> {
+    const mealRef = doc(firestore, "food", mealId);
+    const mealSnap = await getDoc(mealRef);
+
+    if (mealSnap.exists()) {
+        const data = mealSnap.data();
+        return {
+            id: mealSnap.id,
+            contact: data.contact,
+            name: data.name,
+            description: data.description,
+            mealsAvailable: data.mealsAvailable ?? 0,
+            startPickup: data.startPickup?.toDate() || null,
+            endPickup: data.endPickup?.toDate() || null,
+            imageUrl: data.imageUrl || "",
+        } as Food;
+    }
+
+    return null;
 }
 
