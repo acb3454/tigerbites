@@ -15,10 +15,6 @@
     z-index: 0;
 }
 
-.fixstyle {
-    margin-top: -20px;
-    margin-left: -20px;
-}
 
 .depth {
     position: absolute;
@@ -132,11 +128,19 @@
 
 
 @media (max-width: 768px) {
-    .inside-base {
+    #root {
+        padding: 0;
         margin: 0;
-        margin-top: 100px;
-        min-width: 100%;
-        height: calc(100vh - 100px);
-        border-radius: 0px;
+        min-width: 100vw ;
+        min-height: calc(100vh - 90px);
+        overflow: hidden;
+    }
+    .inside-base {
+        width: 100%;
+            height: calc(100vh - 100px);
+            top: 100px;
+            left: 0;
+            transform: none;
+            border-radius: 0;
     }
 }

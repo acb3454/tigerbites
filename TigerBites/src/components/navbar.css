@@ -74,12 +74,34 @@
 
 @media (max-width: 768px) {
     .navbar {
-        min-width: 100%;
-        top: 0px;
-        left: 0px
-    }
-
-    .navbar-container{
-        min-width: fit-content;
-    }
+            min-width: 100vw;
+            top: 0;
+            left: 0;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    
+        .navbar-container {
+            max-width: 100%;
+        }
+    
+        .navbar-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            font-size: large;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: fit-content;
+            text-align: right;
+        }
+    
+        .navbar-menu.open {
+            display: flex;
+        }
+    
+        .navbar-hamburger {
+            display: flex;
+        }
 }
