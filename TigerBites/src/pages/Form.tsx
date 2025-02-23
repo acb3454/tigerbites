@@ -6,8 +6,8 @@ import FoodForm from '@/components/foodform'
 function Form() {
   return (
     <>
+      <NavBar></NavBar>
       <InsideFridge>
-        <NavBar></NavBar>
         <div className="form">
             <FoodForm></FoodForm>
         </div>
