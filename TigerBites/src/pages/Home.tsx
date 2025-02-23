@@ -13,7 +13,6 @@ function Home() {
       <div className='base'>
         <div className='handle'></div>
         <div className='content-container'>
-          <MealContainer></MealContainer>
           <button className="fixed-button" onClick={() => window.location.href = '/form'}>Add Meal!</button>
         </div>
         {!selectedMealId ? (
