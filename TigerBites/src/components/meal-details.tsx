@@ -50,6 +50,7 @@ export default function MealDetails({ mealId, onBack }: MealDetailProps) {
                             ? meal.endPickup.toLocaleString()
                             : "N/A"}
                     </p>
+                    <p>Location: {meal.location}</p>
                     {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
                 </div>
             </InsideFridge>
