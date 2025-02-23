@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getFoodItems } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 
-
 export default function MealContainer() {
     const [foodItems, setFoodItems] = useState<Food[]>([]);
     const [loading, setLoading] = useState(true);
@@ -30,22 +29,7 @@ export default function MealContainer() {
         <div className="meal-container">
             {foodItems.map((food) => (
                 <div key={food.id} className="meal ">
-                    <h2 className="meal-title">{food.name}</h2>
-                    <p className="meal-description">{food.description}</p>
-                    <p className="meal-availability">
-                        Meals Available: <strong>{food.mealsAvailable}</strong>
-                    </p>
-                    <p className="meal-timing">
-                        Pickup:{" "}
-                        {food.startPickup
-                            ? food.startPickup.toLocaleString()
-                            : "N/A"}{" "}
-                        -{" "}
-                        {food.endPickup
-                            ? food.endPickup.toLocaleString()
-                            : "N/A"}
-                    </p>
-                    <img src={food.imageUrl || "default-image-url.jpg"}></img>
+                    <img src={food.imageUrl || "default-image-url.jpg"} className='food-image'></img>
                 </div>
             ))}
         </div>

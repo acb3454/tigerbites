@@ -20,6 +20,11 @@
     width: calc(100% - 10px);
 }
 
+.food-image:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
 @media (max-width: 768px) {
    .meal-container {
         max-width: 85%;
