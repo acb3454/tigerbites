@@ -4,7 +4,7 @@ import { getFoodItems } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 import { useNavigate } from 'react-router-dom';
 import magnet1 from '../assets/Magnets/tigers-flag-tp.png';
-import magnet2 from '../assets/Magnets/balloon-binary-tp.png';
+import magnet2 from '../assets/Magnets/balloon.png';
 import magnet3 from '../assets/Magnets/tigers-flag-tp.png';
 import magnet4 from '../assets/Magnets/magnet4.png';
 import magnet5 from '../assets/Magnets/magnet5.png';
