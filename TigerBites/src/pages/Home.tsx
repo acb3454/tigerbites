@@ -20,7 +20,7 @@ function Home() {
         {!selectedMealId ? (
           <MealContainer onMealClick={(id: string) => setSelectedMealId(id)} />
         ) : (
-          <MealDetails mealId={selectedMealId} onBack={() => setSelectedMealId(null)} />
+          <MealDetails/>
         )}
       </div>
     </>

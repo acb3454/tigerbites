@@ -17,7 +17,6 @@
     margin-left: -20px;
 }
 
-
 .depth {
     position: absolute;
     width: 80%;
@@ -33,9 +32,105 @@
     z-index: -1;
 }
 
+.meal-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.detail-page {
+    max-width: 90%;
+    margin: 1% auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.detail-page .button1 {
+    background: #f15a24;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+
+.detail-page .button2 {
+    background: #102693;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.detail-page button:hover {
+    background: #d14b1e;
+}
+
+.detail-page h2 {
+    font-size: 24px;
+    color: #102693;
+    margin-bottom: 10px;
+}
+
+.detail-page p {
+    font-size: 16px;
+    color: #102693;
+    margin-bottom: 10px;
+}
+
+.detail-page .meal-timing {
+    font-weight: bold;
+    color: black;
+    background-color: #b388eb;
+}
+
+.detail-page img {
+    width: 60%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-top: 1%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    justify-self: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .detail-page {
+        max-width: 90%;
+        padding: 16px;
+    }
+
+    .detail-page h2 {
+        font-size: 22px;
+    }
+
+    .detail-page p {
+        font-size: 14px;
+    }
+
+    .detail-page button {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .inside-base {
-        margin-top: 100px;
+        margin-top: 1%;
         min-width: 100%;
         height: calc(100vh - 100px);
         border-radius: 0px;
