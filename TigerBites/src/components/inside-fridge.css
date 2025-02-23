@@ -132,7 +132,7 @@
         padding: 0;
         margin: 0;
         min-width: 100dvw;
-        min-height: calc(100vdh - 90px);
+        min-height: calc(100dvh - 90px);
         overflow: hidden;
     }
 
