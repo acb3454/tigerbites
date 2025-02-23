@@ -14,6 +14,7 @@
     background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
     border-radius: 10px;
     height: 80vh;
+    overflow: scroll;
 }
 
 .handle {
@@ -54,8 +55,10 @@
     }
 
     .base {
+        margin-top: 100px;
+        padding-top: 20px;
         min-width: 100%;
-        height: 100vh;
+        height: calc(100vh - 100px);
         border-radius: 0px;
     }
 

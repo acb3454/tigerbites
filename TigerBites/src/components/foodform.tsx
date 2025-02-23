@@ -1,7 +1,7 @@
 import { Timestamp, DocumentReference } from 'firebase/firestore';
 import { addDoc, collection } from "@firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { firestore, storage} from "../config/firebase";
+import { firestore, storage } from "../config/firebase";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -76,7 +76,7 @@ const FoodForm = () => {
 
         const food: Food = {
             name: data.name,
-            description: data.description,  
+            description: data.description,
             contact: {} as DocumentReference,
             startPickup: Timestamp.fromDate(new Date(data.startPickup)),
             endPickup: Timestamp.fromDate(new Date(data.endPickup)),
@@ -86,8 +86,8 @@ const FoodForm = () => {
         console.log(food);
         const col = collection(firestore, 'food');
         try {
-            console.log(food)
             await addDoc(col, food);
+            alert('Thank you for reducing food waste!');
         } catch (e) {
             console.log(e);
         }
@@ -98,97 +98,99 @@ const FoodForm = () => {
     };
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Food Name</FormLabel>
-                            <FormControl>
-                                <Input {...field} type="text" />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="description"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Description</FormLabel>
-                            <FormControl>
-                                <Textarea {...field} />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="startPickup"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Start Pickup</FormLabel>
-                            <FormControl>
-                                <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" 
-                                {...field} type="datetime-local" />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="endPickup"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>End Pickup</FormLabel>
-                            <FormControl>
-                                <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" 
-                                {...field} type="datetime-local" />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="mealsAvailable"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Meals Available</FormLabel>
-                            <FormControl>
-                                <Input {...field} type="number" />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="image"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Image</FormLabel>
-                            <FormControl>
-                            <Input {...field} type="file" accept="image/*" onChange={handleFileChange} />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">Submit</Button>
-            </form>
-        </Form>
+        <div className='form'>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Food Name</FormLabel>
+                                <FormControl>
+                                    <Input {...field} type="text" />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="description"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Description</FormLabel>
+                                <FormControl>
+                                    <Textarea {...field} />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="startPickup"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Start Pickup</FormLabel>
+                                <FormControl>
+                                    <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                        {...field} type="datetime-local" />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="endPickup"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>End Pickup</FormLabel>
+                                <FormControl>
+                                    <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                        {...field} type="datetime-local" />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="mealsAvailable"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Meals Available</FormLabel>
+                                <FormControl>
+                                    <Input {...field} type="number" />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="image"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Image</FormLabel>
+                                <FormControl>
+                                    <Input {...field} type="file" accept="image/*" onChange={handleFileChange} />
+                                </FormControl>
+                                <FormDescription />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <Button type="submit">Submit</Button>
+                </form>
+            </Form>
+        </div>
     );
 };
 

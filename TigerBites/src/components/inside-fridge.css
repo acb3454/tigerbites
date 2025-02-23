@@ -3,15 +3,16 @@
 .inside-base {
     width: 100%;
     position: relative;
-    background:  #f1f1f1;
+    background: #f1f1f1;
     border-width: 20px;
     border-color: #d2d8d9;
     border-radius: 10px;
     height: 80vh;
+    overflow: scroll;
     z-index: 0;
 }
 
-.fixstyle{
+.fixstyle {
     margin-top: -20px;
     margin-left: -20px;
 }
@@ -34,8 +35,10 @@
 
 @media (max-width: 768px) {
     .inside-base {
+        margin-top: 100px;
+        padding-top: 20px;
         min-width: 100%;
-        height: 100vh;
+        height: calc(100vh - 100px);
         border-radius: 0px;
     }
 }

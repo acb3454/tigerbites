@@ -1,6 +1,6 @@
 .meal-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     overflow: hidden;
     -moz-column-count: 3;
     -webkit-column-count: 3;
@@ -12,7 +12,7 @@
     row-gap: 1em;
     -moz-row-gap: 1em;
     -webkit-row-gap: 1em;
-    margin-left: 1em ;
+    margin-left: 1.5em ;
 }
 
 .meal {
@@ -22,7 +22,13 @@
 
 @media (max-width: 768px) {
    .meal-container {
-    max-width: 85%;
+        max-width: 85%;
    }
 
+}
+
+@media (max-width: 600px) {
+    .meal-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }
