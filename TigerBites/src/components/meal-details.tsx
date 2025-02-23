@@ -2,6 +2,7 @@ import './inside-fridge.css';
 import { useState, useEffect } from 'react';
 import { getMealById } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
+import InsideFridge from '@/components/inside-fridge';
 
 interface MealDetailProps {
     mealId: string;
@@ -31,22 +32,27 @@ export default function MealDetails({ mealId, onBack }: MealDetailProps) {
     if (!meal) return <p>Meal not found.</p>;
 
     return (
-        <div className="inside-base">
-            <button onClick={onBack}>Back</button>
-            <h2>{meal.name}</h2>
-            <p>{meal.description}</p>
-            <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
-            <p className="meal-timing">
-                Pickup:{" "}
-                {meal.startPickup
-                    ? meal.startPickup.toLocaleString()
-                    : "N/A"}{" "}
-                -{" "}
-                {meal.endPickup
-                    ? meal.endPickup.toLocaleString()
-                    : "N/A"}
-            </p>
-            {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
-        </div>
+        <>
+            <InsideFridge>
+                {/* <NavBar></NavBar> */}
+                <div className="inside-base">
+                    <button onClick={onBack}>Back</button>
+                    <h2>{meal.name}</h2>
+                    <p>{meal.description}</p>
+                    <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
+                    <p className="meal-timing">
+                        Pickup:{" "}
+                        {meal.startPickup
+                            ? meal.startPickup.toLocaleString()
+                            : "N/A"}{" "}
+                        -{" "}
+                        {meal.endPickup
+                            ? meal.endPickup.toLocaleString()
+                            : "N/A"}
+                    </p>
+                    {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
+                </div>
+            </InsideFridge>
+        </>
     );
 }
