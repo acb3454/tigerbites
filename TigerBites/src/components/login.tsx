@@ -4,6 +4,7 @@ import { auth } from '../config/firebase';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
+import "./login.css"
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ const Login: React.FC = () => {
     return (
         <form onSubmit={handleLogin}>
             <Input
+                className='input'
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -38,14 +40,14 @@ const Login: React.FC = () => {
                 required
             />
             <Input
-                className=""
+                className='input'
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 required
             />
-            <Button type="submit">Login</Button>
+            <Button className="btn" type="submit">Login</Button>
         </form>
     );
 };

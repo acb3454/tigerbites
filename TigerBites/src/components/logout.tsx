@@ -17,7 +17,7 @@ const Logout: React.FC = () => {
         }
     };
 
-    return <Button onClick={handleLogout}>Logout</Button>;
+    return <Button type="submit" onClick={handleLogout}>Logout</Button>;
 };
 
 export default Logout;
