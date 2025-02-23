@@ -5,6 +5,7 @@ import MealContainer from '@/components/meal-containter'
 function Home() {
   return (
     <>
+
       <div className='base'>
         <div className='handle'></div>
         <NavBar></NavBar>

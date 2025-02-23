@@ -14,7 +14,8 @@
     background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
     border-radius: 10px;
     height: 90vh;
-    overflow: scroll;
+    overflow: hidden;
+    top: 1%;
 }
 
 .handle {
