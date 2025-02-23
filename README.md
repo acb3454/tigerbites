@@ -2,6 +2,15 @@
 
 ![badge1](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) ![badge2](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black) ![badge3](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
+## Getting Started
+To set up the project for local development, please perform the following commands from the root directory.
+```
+cd TigerBites
+npm install
+npm run dev
+```
+Alternatively, just visit the live version of the website [here](tigerbytes.tech)!
+
 ## Inspiration
 Our inspiration from TigerBytes came from RIT’s Foodshare and a well-known app, Too Good To Go. We wanted to implement a solution to food waste on our college campus, and each of us were very familiar with the Too Good To Go app that is available in popular cities to connect people with food that would otherwise be wasted. With this idea, we were guided by the United Nations Sustainability Goals, specifically Zero Hunger (2), Good Health and Well-Being (3), and Sustainable Cities and Communities (11). We wanted to develop a way to bring these goals to our RIT community, and TigerBytes was the solution. The goal of TigerBytes is to support students who may not have meal plans or are on a tight budget by providing access to free, ready-to-eat meals. While Foodshare is a valuable resource for non-perishable groceries, it does not currently offer prepared meals. With the amount of food that goes to waste at large events (like a hackathon for example), where large quantities of food are ordered and leftovers go unused, TigerBytes can help mediate this issue by connecting students who have insufficient dining dollars or funds and are in need of food. Through TigerBytes, we promote a sustainable college community, ensuring that no one goes hungry and that every student stays in good health.
 
