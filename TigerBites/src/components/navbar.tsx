@@ -26,6 +26,7 @@ export default function NavBar() {
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
+                    
                 </div>
             </div>
         </nav>
