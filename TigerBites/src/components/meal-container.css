@@ -3,8 +3,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5vw;
     max-width: 90%;
-    min-height: 30vh;
-    max-height: calc(100vh - 100px);
+    min-height: 30dvh;
+    max-height: calc(100dvh - 100px);
     overflow-y: auto;
     overflow-x: hidden;
     margin: 1vh 1vh 1vh 1vh;
