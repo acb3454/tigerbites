@@ -29,10 +29,10 @@
   
   .magnet-image {
     position: absolute;
-    top: -60%;
-    left: -45%;
-    width: 100%;
-    height: 100%;
+    top: -70%;
+    left: -65%;
+    width: auto;
+    height: auto;
     z-index: 1;
   }
 
@@ -65,7 +65,7 @@
     align-items: center;
     justify-content: flex-end;
 }
-
+ 
 .caption {
     font-family: 'Poor Story', cursive;
     font-size: 1.2em;
@@ -87,4 +87,13 @@
     .meal-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .magnet-image {
+        position: absolute;
+        top: -40%;
+        left: -35%;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
 }
