@@ -28,9 +28,11 @@ export default function MealContainer() {
     return (
         <div className="meal-container">
             {foodItems.map((food) => (
-                <div key={food.id} className="meal ">
-                    <img src={food.imageUrl || "default-image-url.jpg"} className='food-image'></img>
-                </div>
+                <div key={food.id} className="polaroid">
+                <img src={food.imageUrl || "default-image-url.jpg"} className='food-image' 
+                    style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }} />
+                <p className="caption">   </p>
+            </div>
             ))}
         </div>
     );

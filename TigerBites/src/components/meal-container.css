@@ -5,7 +5,7 @@
     max-width: 80%;
     height: 70%;
     margin: .02em auto;
-    padding: .1em;
+    /* padding: .1em; */
     transform: translateY(+30%);
     justify-content: center;
 }
@@ -22,4 +22,49 @@
 .food-image:hover {
     cursor: pointer;
     opacity: 0.7;
+    border: 1px 
+}
+
+.meal-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.polaroid {
+    background: white;
+    padding: 5px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    width: 100px;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.food-image {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+}
+
+.caption {
+    font-family: 'Poor Story', cursive;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.polaroid:nth-child(4n+1) { transform: rotate(5deg); }
+.polaroid:nth-child(4n+2) { transform: rotate(-4deg); }
+.polaroid:nth-child(4n+3) { transform: rotate(6deg); }
+.polaroid:nth-child(4n+4) { transform: rotate(-5deg); }
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.4);
 }

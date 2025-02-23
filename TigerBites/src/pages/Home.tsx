@@ -5,10 +5,11 @@ import MealContainer from '@/components/meal-containter'
 function Home() {
   return (
     <>
-
+<NavBar></NavBar>
       <div className='base'>
+      {/* <NavBar></NavBar> */}
         <div className='handle'></div>
-        <NavBar></NavBar>
+        {/* <NavBar></NavBar> */}
         <div className="formlink">
           <div className="linktext" onClick={() => window.location.href = '/form'}>
             Click here if you have meals avaliable!

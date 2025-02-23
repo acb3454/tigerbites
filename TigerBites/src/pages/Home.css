@@ -8,7 +8,7 @@
     min-width: 768px;
 }
 
-.base {
+/* .base {
     width: 55vh;
     position: relative;
     background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
@@ -16,7 +16,22 @@
     height: 90vh;
     overflow: hidden;
     top: 1%;
+} */
+
+.base {
+    width: 55vh;
+    height: 90vh;
+    background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
+    border-radius: 10px;
+    overflow: hidden;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 10%;
 }
+
 
 .handle {
     width: 2vh;
