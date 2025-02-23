@@ -4,7 +4,9 @@ import { auth } from '../config/firebase';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
+
 import "./login.css"
+
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
@@ -18,13 +20,6 @@ const Login: React.FC = () => {
             console.log("User logged in successfully");
             navigate('/');
         } catch (error) {
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                console.log("User logged in successfully");     
-                navigate('/');
-            } catch (error) {         
-                console.error("Error logging in:", error);
-            }
             console.error("Error logging in:", error);
         }
     };
@@ -47,6 +42,7 @@ const Login: React.FC = () => {
                 placeholder="Password"
                 required
             />
+            <a href="/newuser" className="btn" type="submit">Create an account</a>
             <Button className="btn" type="submit">Login</Button>
         </form>
     );
