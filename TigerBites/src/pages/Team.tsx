@@ -8,7 +8,7 @@ import Aemilia from '../assets/Aemilia.png'
 
 
 
-function About() {
+function Team() {
   return (
     <>
       <NavBar></NavBar>
@@ -41,4 +41,4 @@ function About() {
   )
 }
 
-export default About
+export default Team
