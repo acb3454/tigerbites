@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getMealById } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 import InsideFridge from '@/components/inside-fridge';
-import { useParams, useNavigate, redirect } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth.ts';
 import { Button } from './ui/button.tsx';
 import { doc, setDoc } from 'firebase/firestore';
@@ -59,7 +59,7 @@ export default function MealDetails() {
 
     const updateUser = async () => {
         if (!userData) {
-            redirect('/login');
+            navigate('/login');
         }
         const userRef = doc(firestore, 'users', userData!.id);;
         const mealNum = userData!.meals_taken + 1;
@@ -71,25 +71,26 @@ export default function MealDetails() {
     }
 
     const takeMeal = async () => {
-        if (!meal) {
-            throw new Error('Meal data is not available.');
+        if (!meal || !userData) {
+            navigate('/login');
+            return;
         }
+
+        const newMealsAvailable = meal.mealsAvailable - 1;
         const mealRef = doc(firestore, 'food', mealId!);
-        const mealCount = meal.mealsAvailable - 1;
+
         try {
-            await setDoc(mealRef, { mealsAvailable: mealCount }, { merge: true });
+            await setDoc(mealRef, { mealsAvailable: newMealsAvailable }, { merge: true });
             await updateUser();
-            const data = await getMealById(mealId!);
-            const mealsAvailable = data?.mealsAvailable;
-            if (mealsAvailable) {
-                if (mealsAvailable > 0) {
-                    setMeal(data);
-                }
+
+            if (newMealsAvailable > 0) {
+                setMeal({ ...meal, mealsAvailable: newMealsAvailable }); // Update UI immediately
+            } else {
+                setMeal(null); // Hide meal if it's out of stock
             }
         } catch (error) {
             console.error('Error updating meal data:', error);
         }
-        console.log("Meal taken");
     };
 
     return (
@@ -108,7 +109,11 @@ export default function MealDetails() {
                 </p>
                 <br/>
                 {meal.imageUrl && <img src={meal.imageUrl} alt={meal.name} />}
-                <Button className='button2' onClick={takeMeal}>Take Meal</Button>
+                {userData ? (
+                        <Button className='button2' onClick={takeMeal}>Take Meal</Button>
+                    ) : (
+                        <p>Please <a href="/login">log in</a> to take a meal.</p>
+                )}
             </div>
         </InsideFridge>
         </>
