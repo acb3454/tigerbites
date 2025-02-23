@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
-import Login from '../components/login';
 import Logout from '../components/logout';
 import InsideFridge from '@/components/inside-fridge';
 import NavBar from '@/components/navbar';
 import './Auth.css'
+import CreateAcc from '@/components/createacc';
 
 const Auth: React.FC = () => {
     const { user, userData, loading } = useAuth();
@@ -20,22 +20,12 @@ const Auth: React.FC = () => {
                 {user ? (
                     <div className='form'>
                         <h1>Welcome, {userData?.name}</h1>
-                        <div className='info'>
-                            <div className='item'>
-                                <h2>Meals Posted</h2>
-                                <p>{userData?.meals_saved}</p>
-                            </div>
-                            <div className='item'>
-                                <h2>Meals Taken</h2>
-                                <p>{userData?.meals_taken}</p>
-                            </div>
-                        </div>
                         <Logout />
                     </div>
                 ) : (
                     <div className='form'>
-                        <h1>Please log in</h1>
-                        <Login />
+                        <h1>Create a new account</h1>
+                        <CreateAcc/>
                     </div>
                 )}
             </div>

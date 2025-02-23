@@ -5,7 +5,13 @@ h1 {
     display: block;
 }
 
-
 .auth {
     padding-top: 3rem;
+}
+
+.info {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding-bottom: 15px;
 }

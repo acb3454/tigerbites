@@ -18,6 +18,7 @@ export interface Impact {
 
 export interface Users {
     id: string;
+    email: string;
     name: string;
     mealsProvided: number;
     mealsTaken: number;

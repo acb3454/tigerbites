@@ -1,5 +1,5 @@
 import { Timestamp, DocumentReference } from 'firebase/firestore';
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, collection, doc, setDoc} from "@firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { firestore, storage } from "../config/firebase";
 import { z } from "zod";
@@ -18,7 +18,9 @@ import { Input } from "@/components/ui/input"
 import './foodform.css';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
 
 export interface Food {
     contact: DocumentReference;
@@ -32,7 +34,16 @@ export interface Food {
 
 const FoodForm = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
+    const navigate = useNavigate();
+    const { user, userData, loading } = useAuth();
 
+    useEffect(() => {
+        if (!loading && !user && !userData) {
+            navigate('/login');
+        }
+    }, [user, userData, loading, navigate]);
+    
     const formSchema = z.object({
         name: z.string().min(3, {
             message: "Title must be at least 3 characters long.",
@@ -74,10 +85,11 @@ const FoodForm = () => {
             imageUrl = await getDownloadURL(imageRef);
         }
 
+        const userRef = doc(firestore, 'users', userData!.id); 
         const food: Food = {
             name: data.name,
             description: data.description,
-            contact: {} as DocumentReference,
+            contact: userRef as DocumentReference,
             startPickup: Timestamp.fromDate(new Date(data.startPickup)),
             endPickup: Timestamp.fromDate(new Date(data.endPickup)),
             mealsAvailable: data.mealsAvailable,
@@ -87,7 +99,13 @@ const FoodForm = () => {
         const col = collection(firestore, 'food');
         try {
             await addDoc(col, food);
+            await updateCurrentUser(userData, data.mealsAvailable);
             alert('Thank you for reducing food waste!');
+            form.reset();
+            setSelectedFile(null);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = ''; 
+            }
         } catch (e) {
             console.log(e);
         }
@@ -180,7 +198,7 @@ const FoodForm = () => {
                             <FormItem>
                                 <FormLabel>Image</FormLabel>
                                 <FormControl>
-                                    <Input {...field} type="file" accept="image/*" onChange={handleFileChange} />
+                                    <Input {...field} type="file" accept="image/*" onChange={handleFileChange} ref={fileInputRef} />
                                 </FormControl>
                                 <FormDescription />
                                 <FormMessage />
@@ -192,6 +210,20 @@ const FoodForm = () => {
             </Form>
         </div>
     );
+};
+
+const updateCurrentUser = async (userData: import("@/hooks/useAuth").User | null, mealsAvailable: number) => {
+    if (!userData) {
+        throw new Error('User data is not available.');
+    }
+
+    const userRef = doc(firestore, 'users', userData!.id);;
+    const mealNum = userData.meals_saved + mealsAvailable;
+    try {
+        await setDoc(userRef, { meals_saved: mealNum }, { merge: true });
+    } catch (error) {
+        console.error('Error updating user data:', error);
+    }
 };
 
 export default FoodForm;
