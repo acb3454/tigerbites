@@ -42,11 +42,13 @@ export default function MealDetails() {
 
     return (
         <InsideFridge>
-            <div>
+            <div className='detail-page'>
                 <button onClick={() => navigate(-1)}>Back</button>
-                <h2>{meal.name}</h2>
-                <p>{meal.description}</p>
-                <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
+                <h2><strong>{meal.name}</strong></h2>
+                <div className='meal-info'>
+                    <p>{meal.description}</p>
+                    <p>Meals Available: <strong>{meal.mealsAvailable}</strong></p>
+                </div>
                 <p className="meal-timing">
                     Pickup: {formatTimestamp(meal.startPickup)} - {formatTimestamp(meal.endPickup)}
                 </p>
