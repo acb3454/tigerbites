@@ -1,12 +1,17 @@
 import './Home.css'
 import NavBar from '../components/navbar'
+import InsideFridge from '@/components/inside-fridge'
+import FoodForm from '@/components/foodform'
 
 function Form() {
   return (
     <>
-      <div className='base'>
+      <InsideFridge>
         <NavBar></NavBar>
-      </div>
+        <div className="form">
+            <FoodForm></FoodForm>
+        </div>
+     </InsideFridge>
     </>
   )
 }

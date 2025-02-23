@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
+
+.inside-base {
+    width: 100%;
+    position: relative;
+    background:  #f1f1f1;
+    border-width: 20px;
+    border-color: #d2d8d9;
+    border-radius: 10px;
+    height: 80vh;
+    z-index: 0;
+}
+
+.fixstyle{
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+
+.depth {
+    position: absolute;
+    width: 80%;
+    background-color: #e7e9ea;
+    height: 65vh;
+    top: 10%;
+    left: 10%;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .inside-base {
+        min-width: 100%;
+        height: 100vh;
+        border-radius: 0px;
+    }
+}

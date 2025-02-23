@@ -1,0 +1,10 @@
+/* For WebKit browsers (Chrome, Safari) */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
+}
+
+/* For Firefox */
+input[type="datetime-local"]::-moz-datetime-local {
+    color: #B388EB;
+    /* Change this to your desired color */
+}

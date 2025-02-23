@@ -7,11 +7,3 @@
     text-align: center;
     min-width: 768px;
 }
-
-.base {
-    width: 100%;
-    position: relative;
-    background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
-    border-radius: 10px;
-    height: 80vh;
-}
