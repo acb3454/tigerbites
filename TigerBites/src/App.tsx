@@ -6,6 +6,7 @@ import Auth from './pages/Auth'
 import MealDetails from './components/meal-details'
 import About from './pages/About'
 import NewUser from './pages/NewUser'
+import Impact from './pages/Impact'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/meal/:mealId" element={<MealDetails/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/newuser" element={<NewUser />} />
+          <Route path="/impact" element={<Impact />} />
         </Routes>
       </BrowserRouter>
     </>
