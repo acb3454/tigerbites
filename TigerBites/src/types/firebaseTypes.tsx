@@ -9,6 +9,7 @@ export interface Food {
     endPickup: Timestamp | Date;
     mealsAvailable: number;
     imageUrl: string;
+    location: string;
 }
 
 export interface Impact {
@@ -18,6 +19,7 @@ export interface Impact {
 
 export interface Users {
     id: string;
+    email: string;
     name: string;
     mealsProvided: number;
     mealsTaken: number;

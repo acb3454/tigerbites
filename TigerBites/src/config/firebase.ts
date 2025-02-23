@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -15,8 +16,10 @@ const firebaseConfig = {
     appId: "1:396359243251:web:9766e3d9859081fdc92e86",
     measurementId: "G-SEWWVC9QX8"
   };
+
 // Initialize Firebase
 export const Firebase = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(Firebase);
 export const firestore = getFirestore(Firebase);
 export const storage = getStorage(Firebase);
+export const auth = getAuth(Firebase);
