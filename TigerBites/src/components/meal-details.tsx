@@ -13,7 +13,7 @@ import NavBar from './navbar.tsx';
 const formatTimestamp = (timestamp: any) => {
     if (!timestamp) return "N/A";
     const options = {
-        year: 'numeric' as const,
+
         month: 'short' as const,
         day: 'numeric' as const,
         hour: '2-digit' as const,
