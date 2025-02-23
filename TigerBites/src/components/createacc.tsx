@@ -85,7 +85,7 @@ const CreateAcc: React.FC = () => {
                 required
             />
             <Button className="btn" type="submit">Submit</Button>
-            <a href="/login">Already have an account?</a>
+            <a href="/login" className='link'>Already have an account?</a>
         </form>
     );
 };

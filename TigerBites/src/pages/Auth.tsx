@@ -7,7 +7,7 @@ import NavBar from '@/components/navbar';
 import './Auth.css'
 
 const Auth: React.FC = () => {
-    const { user, loading } = useAuth();
+    const { user, userData, loading } = useAuth();
 
     if (loading) {
         return <div>Loading...</div>;
@@ -19,7 +19,17 @@ const Auth: React.FC = () => {
             <div className="auth">
                 {user ? (
                     <div className='form'>
-                        <h1>Welcome, {user.email}</h1>
+                        <h1>Welcome, {userData?.name}</h1>
+                        <div className='info'>
+                            <div className='item'>
+                                <h2>Meals Posted</h2>
+                                <p>{userData?.meals_saved}</p>
+                            </div>
+                            <div className='item'>
+                                <h2>Meals Taken</h2>
+                                <p>{userData?.meals_taken}</p>
+                            </div>
+                        </div>
                         <Logout />
                     </div>
                 ) : (

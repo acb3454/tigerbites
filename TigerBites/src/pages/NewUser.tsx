@@ -19,7 +19,7 @@ const Auth: React.FC = () => {
             <div className="auth">
                 {user ? (
                     <div className='form'>
-                        <h1>Welcome, {user.email}</h1>
+                        <h1>Welcome, {userData?.name}</h1>
                         <Logout />
                     </div>
                 ) : (

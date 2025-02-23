@@ -20,7 +20,7 @@ const AuthStatus: React.FC = () => {
 
     return (
         <div>
-            {user ? `Logged in as ${userData?.name}` : "Not logged in"}
+            {user ? `Hi ${userData?.name}!` : "Login"}
         </div>
     );
 };

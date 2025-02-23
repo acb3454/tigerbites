@@ -42,8 +42,8 @@ const Login: React.FC = () => {
                 placeholder="Password"
                 required
             />
-            <a href="/newuser" className="btn" type="submit">Create an account</a>
             <Button className="btn" type="submit">Login</Button>
+            <a href="/newuser" className="link" type="submit">Create an account</a>
         </form>
     );
 };
