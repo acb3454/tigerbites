@@ -17,8 +17,14 @@ export default function MealContainer({ onMealClick }: MealContainerProps) {
         const fetchFood = async () => {
             try {
                 const data = await getFoodItems();
-                setFoodItems(data);
+                const now = new Date();
+                const filteredData = data.filter((food: Food) => {
+                    const end = food.endPickup ? food.endPickup : new Date(food.endPickup);
+                    return food.mealsAvailable > 0 && now <= end; // Meal must be available & within pickup time range
+                });
+                setFoodItems(filteredData);
                 console.log("Fetched food items:", data);
+                console.log("Displaying food items:", filteredData);
             } catch (error) {
                 console.error("Error fetching food items:", error);
             } finally {

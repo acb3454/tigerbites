@@ -26,7 +26,13 @@ export default function MealDetails() {
         const fetchMeal = async () => {
             try {
                 const data = await getMealById(mealId);
-                setMeal(data);
+                const mealsAvailable = data?.mealsAvailable;
+                if (mealsAvailable){
+                    if (mealsAvailable>0){
+                        setMeal(data);
+                    }
+                }
+                
             } catch (error) {
                 console.error("Error fetching meal details:", error);
             } finally {
@@ -38,7 +44,12 @@ export default function MealDetails() {
     }, [mealId]);
 
     if (loading) return <p>Loading meal details...</p>;
-    if (!meal) return <p>Meal not found.</p>;
+    if (!meal) return (
+        <div>
+            <button onClick={() => navigate(-1)}>Back</button>
+            <p>Unfortunately this meal is no longer available.</p>
+        </div>
+    );
 
     return (
         <InsideFridge>
