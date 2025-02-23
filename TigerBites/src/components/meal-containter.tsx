@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import magnet1 from '../assets/Magnets/tigers-flag-tp.png';
 import magnet2 from '../assets/Magnets/balloon.png';
 import magnet3 from '../assets/Magnets/tigers-flag-tp.png';
-import magnet4 from '../assets/Magnets/magnet4.png';
 import magnet5 from '../assets/Magnets/magnet5.png';
 import magnet6 from '../assets/Magnets/magnet6.png';
 import magnet7 from '../assets/Magnets/magnet7.png';
@@ -21,7 +20,7 @@ export default function MealContainer({}: MealContainerProps) {
     const [foodItems, setFoodItems] = useState<Food[]>([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-    const magnets = [magnet1, magnet2, magnet3, magnet4, magnet5, magnet6, magnet7, magnet8];
+    const magnets = [magnet1, magnet2, magnet3, magnet5, magnet6, magnet7, magnet8];
 
     useEffect(() => {
         const fetchFood = async () => {
