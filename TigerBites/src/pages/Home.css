@@ -9,21 +9,21 @@
 }
 
 .base {
-    width: 100%;
+    width: 55vh;
     position: relative;
     background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
     border-radius: 10px;
-    height: 80vh;
+    height: 90vh;
     overflow: scroll;
 }
 
 .handle {
-    width: 18px;
-    height: 200px;
+    width: 2vh;
+    height: 20vh;
     background-color: #8a8a8a;
     position: absolute;
     top: 50%;
-    right: 35px;
+    right: 5vh;
     transform: translateY(-50%);
 }
 
