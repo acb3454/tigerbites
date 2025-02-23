@@ -14,7 +14,6 @@
     background: linear-gradient(90deg, #d2d8d9, #d2d8d9, #f1f1f1, #d2d8d9);
     border-radius: 10px;
     overflow: hidden;
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,24 +32,33 @@
     transform: translateY(-50%);
 }
 
-.formlink {
-    aspect-ratio: 1 / 1;
-    background-image: url("../assets/stickynote.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-    width: 15vw;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
 .linktext {
     padding-top: 15px;
     width: 75%;
     margin-left: 15px;
     font-size: 1em;
 }
+
+.fixed-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: auto; 
+    padding: 0.8rem 1.5rem;
+    background-color: #102693;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    color: white;
+}
+
+.fixed-button:hover {
+    background-color: #4763EB;
+}
+
 
 @media (max-width: 768px) {
     #root {

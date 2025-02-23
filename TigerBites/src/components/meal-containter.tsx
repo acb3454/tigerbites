@@ -26,6 +26,7 @@ export default function MealContainer() {
     if (loading) return <p>Loading food items...</p>;
 
     return (
+        <>
         <div className="meal-container">
             {foodItems.map((food) => (
                 <div key={food.id} className="polaroid">
@@ -34,5 +35,6 @@ export default function MealContainer() {
             </div>
             ))}
         </div>
+        </>
     );
 }
