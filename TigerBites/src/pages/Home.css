@@ -50,8 +50,8 @@
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
     color: white;
+    z-index: 100000;
 }
 
 .fixed-button:hover {

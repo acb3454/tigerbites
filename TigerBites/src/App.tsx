@@ -7,6 +7,8 @@ import MealDetails from './components/meal-details'
 import About from './pages/About'
 import NewUser from './pages/NewUser'
 import Impact from './pages/Impact'
+import GetStarted from './pages/GetStarted'
+import Team from './pages/Team'
 
 function App() {
 
@@ -16,9 +18,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form/>} />
+          <Route path="/start" element={<GetStarted/>} />
           <Route path="/login" element={<Auth />} />
           <Route path="/meal/:mealId" element={<MealDetails/>} />
           <Route path="/about" element={<About/>} />
+          <Route path="/team" element={<Team/>} />
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/impact" element={<Impact />} />
         </Routes>

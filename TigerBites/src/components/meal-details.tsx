@@ -10,10 +10,16 @@ import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '@/config/firebase.ts';
 import NavBar from './navbar.tsx';
 
-// Convert timestamps
 const formatTimestamp = (timestamp: any) => {
     if (!timestamp) return "N/A";
-    return timestamp.toDate ? timestamp.toDate().toLocaleString() : new Date(timestamp).toLocaleString();
+    const options = {
+
+        month: 'short' as const,
+        day: 'numeric' as const,
+        hour: '2-digit' as const,
+        minute: '2-digit' as const,
+    };
+    return timestamp.toDate ? timestamp.toDate().toLocaleString(undefined, options) : new Date(timestamp).toLocaleString(undefined, options);
 };
 
 export default function MealDetails() {
