@@ -18,6 +18,7 @@ export default function NavBar() {
                 </div>
                 <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
                     <a href="/about" className="navbar-item">About</a>
+                    <a href="/start" className="navbar-item">Get Started</a>
                     <a href="/team" className="navbar-item">Team</a>
                     <a href="/login" className="navbar-item"><AuthStatus /></a>
                 </div>
