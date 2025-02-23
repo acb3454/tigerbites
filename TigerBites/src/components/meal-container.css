@@ -1,18 +1,18 @@
 .meal-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 1vw;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5vw;
     max-width: 90%;
     height: auto;
     margin: 2vh auto;
-    padding: 1vh;
+    padding: 2vh;
     justify-content: center;
 }
 
 .meal {
-    width: 12vw;
-    max-width: 100px; 
-    aspect-ratio: 3 / 4;
+    width: 18vw;
+    max-width: 200px; 
+    aspect-ratio: 3 / 4; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,12 +28,12 @@
 .food-image:hover {
     cursor: pointer;
     opacity: 0.7;
-    border: 0.2vw solid rgba(0, 0, 0, 0.3);
 }
 
 .polaroid {
     background: white;
-    padding: 0.5vw;
+    padding: 1vw;
+    padding-bottom: 3vw;
     box-shadow: 0.5vw 0.5vw 1.5vw rgba(0, 0, 0, 0.3);
     text-align: center;
     border-radius: 0.5vw;
@@ -44,16 +44,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .caption {
     font-family: 'Poor Story', cursive;
-    font-size: 1vw;
-    margin-top: 0.5vh;
+    font-size: 1.2vw;
+    margin-top: auto;
     text-align: center;
 }
 
+
+/* Rotation effect */
 .polaroid:nth-child(4n+1) { transform: rotate(3deg); }
 .polaroid:nth-child(4n+2) { transform: rotate(-3deg); }
 .polaroid:nth-child(4n+3) { transform: rotate(5deg); }
@@ -62,4 +64,18 @@
 .polaroid:hover {
     transform: scale(1.1) rotate(0deg);
     box-shadow: 0.7vw 0.7vw 2vw rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+    .meal {
+        width: 22vw;
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .meal {
+        width: 30vw;
+        max-width: 160px;
+    }
 }
