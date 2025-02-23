@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './navbar.css';
 import AuthStatus from './authstatus';
+import logo from '../assets/tigerbyteslogo.png';
 
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function NavBar() {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="navbar-logo">
-                    <a href="/">TigerBytes</a>
+                    <a href="/"><img src={logo}></img></a>
                 </div>
                 <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
                     <a href="/about" className="navbar-item">About</a>
