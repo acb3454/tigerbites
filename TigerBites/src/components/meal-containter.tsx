@@ -45,6 +45,7 @@ export default function MealContainer() {
                             ? food.endPickup.toLocaleString()
                             : "N/A"}
                     </p>
+                    <img src={food.imageUrl || "default-image-url.jpg"}></img>
                 </div>
             ))}
         </div>

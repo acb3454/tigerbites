@@ -8,6 +8,7 @@ export interface Food {
     startPickup: Timestamp | Date;
     endPickup: Timestamp | Date;
     mealsAvailable: number;
+    imageUrl: string;
 }
 
 export interface Impact {
