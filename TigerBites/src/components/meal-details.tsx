@@ -10,7 +10,6 @@ import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '@/config/firebase.ts';
 import NavBar from './navbar.tsx';
 
-// Convert timestamps
 const formatTimestamp = (timestamp: any) => {
     if (!timestamp) return "N/A";
     const options = {
