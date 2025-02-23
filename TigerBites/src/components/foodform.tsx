@@ -146,7 +146,7 @@ const FoodForm = () => {
                             <FormItem>
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
-                                    <Textarea {...field} />
+                                    <Textarea {...field} placeholder="Please enter any details about the food. Include allergens, pickup info, or anything else someone would need to know."/>
                                 </FormControl>
                                 <FormDescription />
                                 <FormMessage />
@@ -160,7 +160,7 @@ const FoodForm = () => {
                             <FormItem>
                                 <FormLabel>Location</FormLabel>
                                 <FormControl>
-                                    <Input {...field}  type="text" />
+                                    <Textarea {...field}   placeholder="Please specify a pickup location for this meal. Examples: GV 405 Lobby, RIT Foodshare, etc"/>
                                 </FormControl>
                                 <FormDescription />
                                 <FormMessage />
