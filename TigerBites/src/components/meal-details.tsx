@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getMealById } from "../services/foodServices.tsx";
 import { Food } from "../types/firebaseTypes.tsx";
 import InsideFridge from '@/components/inside-fridge';
-import { useParams, useNavigate, redirect } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth.ts';
 import { Button } from './ui/button.tsx';
 import { doc, setDoc } from 'firebase/firestore';
