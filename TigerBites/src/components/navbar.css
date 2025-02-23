@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
 
 .navbar {
-    padding-left: 1.5rem;
-    padding-top: 1.5rem;
-    padding-right: 1.5rem;
-    padding-bottom: 0.5rem;
+    padding-left: 1.5em;
+    padding-top: 2em;
+    padding-right: 1.5em;
+    padding-bottom: 0.5em;
     position: fixed;
-    top: 30px;
+    top: 0cm;
     min-width: 700px;
     background-color: white;
     z-index: 1000;
@@ -74,7 +74,34 @@
 
 @media (max-width: 768px) {
     .navbar {
-        width: 100%;
-        top: 0px;
-    }
+            min-width: 100vw;
+            top: 0;
+            left: 0;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    
+        .navbar-container {
+            max-width: 100%;
+        }
+    
+        .navbar-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            font-size: large;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: fit-content;
+            text-align: right;
+        }
+    
+        .navbar-menu.open {
+            display: flex;
+        }
+    
+        .navbar-hamburger {
+            display: flex;
+        }
 }

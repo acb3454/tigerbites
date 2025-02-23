@@ -1,21 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
 
 .inside-base {
-    width: 100%;
-    position: relative;
+    width: 55vh;
+    height: 80vh;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
     background: #f1f1f1;
     border-width: 20px;
     border-color: #d2d8d9;
     border-radius: 10px;
-    height: 80vh;
     overflow: scroll;
     z-index: 0;
 }
 
-.fixstyle {
-    margin-top: -20px;
-    margin-left: -20px;
-}
 
 .depth {
     position: absolute;
@@ -43,7 +42,7 @@
 
 .detail-page {
     max-width: 90%;
-    margin: 1% auto;
+    margin: 5% auto;
     padding: 20px;
     text-align: center;
 }
@@ -129,10 +128,19 @@
 
 
 @media (max-width: 768px) {
+    #root {
+        padding: 0;
+        margin: 0;
+        min-width: 100vw ;
+        min-height: calc(100vh - 90px);
+        overflow: hidden;
+    }
     .inside-base {
-        margin-top: 1%;
-        min-width: 100%;
-        height: calc(100vh - 100px);
-        border-radius: 0px;
+        width: 100%;
+            height: calc(100vh - 100px);
+            top: 100px;
+            left: 0;
+            transform: none;
+            border-radius: 0;
     }
 }

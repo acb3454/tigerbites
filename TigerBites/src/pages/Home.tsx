@@ -9,13 +9,11 @@ function Home() {
 
   return (
     <>
+      <NavBar></NavBar>
       <div className='base'>
         <div className='handle'></div>
-        <NavBar></NavBar>
-        <div className="formlink">
-          <div className="linktext" onClick={() => window.location.href = '/form'}>
-            Click here if you have meals avaliable!
-          </div>
+        <div className='content-container'>
+          <button className="fixed-button" onClick={() => window.location.href = '/form'}>Add Meal!</button>
         </div>
         {!selectedMealId ? (
           <MealContainer onMealClick={(id: string) => setSelectedMealId(id)} />

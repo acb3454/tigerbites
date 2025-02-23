@@ -14,8 +14,9 @@ const Auth: React.FC = () => {
     }
 
     return (
-        <InsideFridge>
+        <>
             <NavBar></NavBar>
+        <InsideFridge>
             <div className="auth">
                 {user ? (
                     <div className='form'>
@@ -40,6 +41,7 @@ const Auth: React.FC = () => {
                 )}
             </div>
         </InsideFridge>
+        </>
     );
 };
 

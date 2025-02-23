@@ -19,8 +19,8 @@ export default function NavBar() {
                     <a href="/about" className="navbar-item">About</a>
                     <a href="#services" className="navbar-item">Services</a>
                     <a href="#contact" className="navbar-item">Contact</a>
+                    <a href="/login" className="navbar-item"><AuthStatus /></a>
                 </div>
-                <a href="/login"><AuthStatus /></a>
                 <div className="navbar-hamburger" onClick={toggleMenu}>
                     <span className="bar"></span>
                     <span className="bar"></span>

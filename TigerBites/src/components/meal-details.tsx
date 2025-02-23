@@ -8,6 +8,7 @@ import { useAuth } from '@/hooks/useAuth.ts';
 import { Button } from './ui/button.tsx';
 import { doc, setDoc } from 'firebase/firestore';
 import { firestore } from '@/config/firebase.ts';
+import NavBar from './navbar.tsx';
 
 // Convert timestamps
 const formatTimestamp = (timestamp: any) => {
@@ -92,9 +93,10 @@ export default function MealDetails() {
     };
 
     return (
+        <>
+        <NavBar />
         <InsideFridge>
             <div className='detail-page'>
-                <Button onClick={() => navigate(-1)} className='button1'>Back</Button>
                 <h2><strong>{meal.name}</strong></h2>
                 <p>{meal.location}</p>
                 <div className='meal-info'>
@@ -109,5 +111,6 @@ export default function MealDetails() {
                 <Button className='button2' onClick={takeMeal}>Take Meal</Button>
             </div>
         </InsideFridge>
+        </>
     );
 }

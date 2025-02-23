@@ -38,12 +38,15 @@ export default function MealContainer({}: MealContainerProps) {
     if (loading) return <p>Loading food items...</p>;
 
     return (
+        <>
         <div className="meal-container">
             {foodItems.map((food) => (
-                <div key={food.id} className="meal " onClick={() => navigate(`/meal/${food.id}`)}>
-                    <img src={food.imageUrl || "default-image-url.jpg"} className='food-image'></img>
-                </div>
+                <div key={food.id} className="polaroid" onClick={() => navigate(`/meal/${food.id}`)}>
+                <img src={food.imageUrl || "default-image-url.jpg"} className='food-image' />
+                <p className="caption">   </p>
+            </div>
             ))}
         </div>
+        </>
     );
 }
